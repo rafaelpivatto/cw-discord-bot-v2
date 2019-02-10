@@ -6,12 +6,17 @@
   "private": true,
   "scripts": {
     "dev-client": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "dev-server": "nodemon ./application.js localhost 5000",
-    "start": "npm run dev",
+    "dev-server": "nodemon ./src/server/application.js localhost 5000",
+    "server": "node ./src/server/application.js",
+    "start": "npm run test && npm run build && npm run server",
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit",
     "build": "node build/build.js"
+  },
+  "jest": {
+    "verbose": true,
+    "testURL": "http://localhost/"
   },
   "dependencies": {
     "express": "^4.16.4",
