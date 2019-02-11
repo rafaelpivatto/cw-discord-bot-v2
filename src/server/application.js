@@ -5,6 +5,9 @@ const path = require('path')
 global.appRoot = path.resolve(__dirname, '../../')
 
 app.set('port', process.env.PORT || 5000)
+
+app.disable('x-powered-by')
+
 app.listen(app.get('port'), () => {
   console.log(`Application has started on port ${app.get('port')}`)
 })
